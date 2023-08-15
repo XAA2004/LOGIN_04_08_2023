@@ -1,4 +1,4 @@
-
+import { useForm } from "react-hook-form"
 
 function LoginPage() {
 
@@ -8,7 +8,8 @@ function LoginPage() {
   console.log(data);
   })
   return (
-    <div className='bg-zinc-800 max-w-md p-10 rounded-md'>
+   <div className="flex h-[calc(100vh-100px)] items-center justify-center">
+     <div className='bg-zinc-800 max-w-md p-10 rounded-md'>
      <form onSubmit={onSubmited}>
           <input type="text" {...register("username", {required:true})} placeholder='username'
           className='w-full bg-zinc-600 text-white px-4 py-4 rounded-md my-2' />
@@ -32,10 +33,9 @@ function LoginPage() {
           <button type="submit" className="bg-blue-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded">Register</button>
         </form>
     </div>
+   </div>
   )
 }
-    </div>
-  )
-}
+  
 
 export default LoginPage
