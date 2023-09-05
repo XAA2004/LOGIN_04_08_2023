@@ -1,10 +1,16 @@
-import mongoose from "mongoose";
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import { mongourl } from './config.js'
 
-export const conectDB = async () => {
+export const conectarDB = async () => {
     try {
-        await mongoose.connect("mongodb://127.0.0.1/mernlogin");
-        console.log(">> DB Connect");
+        await mongoose.connect(mongourl, {
+            useNewUrlParser:true,
+            useUnifiedTopology:true,
+        })
+        console.log("conectado a mongo")
     } catch (error) {
-        condole.log(error)
-    }
+        console.log(error);
+        process.exit(1)
+  }
 }
