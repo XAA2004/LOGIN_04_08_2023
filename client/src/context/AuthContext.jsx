@@ -68,6 +68,7 @@ export const AuthProvider = ({ children }) => {
 
         if(!cookies.token){
             setIsAutenticathed(false)
+            setLoading(false);
             return setUser(null)
         }
 
@@ -77,7 +78,9 @@ export const AuthProvider = ({ children }) => {
             if(!res.data) {
                 setIsAutenticathed(false)
                 setLoading(false)
+                return;
             }
+            
             setIsAutenticathed(true);
             setUser(res.data);
             setLoading(false);
